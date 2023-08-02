@@ -1,7 +1,7 @@
 return {
   "aznhe21/actions-preview.nvim",
   config = function()
-    require("actions-preview").setup({
+    require("actions-preview").setup {
       diff = {
         ctxlen = 3,
       },
@@ -19,6 +19,6 @@ return {
           end,
         },
       },
-    })
+    }
   end,
 }
