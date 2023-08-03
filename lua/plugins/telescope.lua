@@ -6,12 +6,13 @@ return {
     local telescope = require("telescope")
     telescope.setup(opts)
     telescope.load_extension("fzf")
+    telescope.load_extension("notify")
     telescope.load_extension("harpoon")
   end,
   opts = {
     defaults = {
       file_ignore_patterns = { ".git/", "node_modules" },
-      layout = {
+      layout_config = {
         preview_width = 0.6,
         prompt_position = "top",
       },
