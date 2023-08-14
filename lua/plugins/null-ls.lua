@@ -25,6 +25,7 @@ local M = {
         diagnostics.shellcheck,
         formatting.shfmt,
         formatting.stylua,
+        code_actions.gitsigns,
 
         -- go null-ls.lua
         formatting.goimports_reviser,
