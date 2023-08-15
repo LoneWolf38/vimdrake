@@ -83,6 +83,8 @@ vim.keymap.set("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<cr>", { desc = "Diff View Open" })
 vim.keymap.set("n", "<leader>dx", "<cmd>DiffviewClose<cr>", { desc = "Diff View Close" })
+vim.keymap.set("n", "<leader>uu", "<cmd>UndotreeToggle<cr>", { desc = "Undo tree toggle" })
+vim.keymap.set("n", "<leader>cm", "<cmd>Mason<cr>", { desc = "Mason Start" })
 vim.keymap.set("n", "<leader>G", "<cmd>Neogit<cr>", { desc = "Neogit start" })
 vim.keymap.set("n", "<leader>bsd", "<cmd>%bd|e#|bd#<cr>|'<cr>", { desc = "Delete surrounding buffers" })
 

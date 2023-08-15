@@ -3,7 +3,6 @@ local plugin = "mason.nvim"
 return {
   "williamboman/" .. plugin,
   cmd = "Mason",
-  keys = { { "<leader>cm", "<cmd>Mason<cr> " } },
   opts = function(_, opts)
     opts.ui = {
       border = "double",
