@@ -81,6 +81,7 @@ vim.keymap.set("n", "<leader>bj", "<cmd>bn<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bk", "<cmd>bp<cr>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>bn", "<cmd>bn<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bp", "<cmd>bp<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>G", "<cmd>Neogit<cr>", { desc = "Neogit start" })
 vim.keymap.set("n", "<leader>bsd", "<cmd>%bd|e#|bd#<cr>|'<cr>", { desc = "Delete surrounding buffers" })
 
 -- clipboard
