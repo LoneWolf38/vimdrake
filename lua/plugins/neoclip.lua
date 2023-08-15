@@ -1,9 +1,6 @@
 return {
   "AckslD/nvim-neoclip.lua",
   dependencies = { "kkharji/sqlite.lua" },
-  keys = {
-    { "<leader>P", "<cmd>Telescope neoclip<cr>", desc = "Neoclip" },
-  },
   opts = {
     history = 1000,
     enable_persistent_history = true,

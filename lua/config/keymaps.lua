@@ -87,6 +87,15 @@ vim.keymap.set("n", "<leader>uu", "<cmd>UndotreeToggle<cr>", { desc = "Undo tree
 vim.keymap.set("n", "<leader>cm", "<cmd>Mason<cr>", { desc = "Mason Start" })
 vim.keymap.set("n", "<leader>G", "<cmd>Neogit<cr>", { desc = "Neogit start" })
 vim.keymap.set("n", "<leader>bsd", "<cmd>%bd|e#|bd#<cr>|'<cr>", { desc = "Delete surrounding buffers" })
+vim.keymap.set("n", "<leader>O", "<cmd>SymbolsOutline<cr>", { desc = "Symbols Outline" })
+vim.keymap.set("n", "<leader>P", "<cmd>Telescope neoclip<cr>", { desc = "Neoclip" })
+vim.keymap.set("n", "<leader>uo", "<cmd>OutputPanel<cr>", { desc = "Toggle LSP Output" })
+vim.keymap.set(
+  "n",
+  "<leader>[c",
+  "<cmd>lua require('treesitter-context').go_to_context()<cr>",
+  { desc = "Attach to the nearest test" }
+)
 
 -- clipboard
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })

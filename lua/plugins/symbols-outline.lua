@@ -64,7 +64,4 @@ return {
     },
   },
   cmd = "SymbolsOutline",
-  keys = {
-    { "<leader>O", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" },
-  },
 }

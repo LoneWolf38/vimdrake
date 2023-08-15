@@ -16,7 +16,4 @@ return {
     zindex = 20, -- The Z-index of the context window
     on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
   },
-  keys = {
-    { "[c", "<cmd>lua require('treesitter-context').go_to_context()<cr>", desc = "Attach to the nearest test" },
-  },
 }
