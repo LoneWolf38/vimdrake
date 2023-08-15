@@ -32,7 +32,8 @@ return {
         vertical = { width = 0.55, height = 0.9, preview_cutoff = 0 },
         prompt_position = "top",
       },
-      path_display = { "smart" },
+      -- path_display : smart | truncate
+      path_display = { "truncate" },
       prompt_position = "top",
       prompt_prefix = " ",
       selection_caret = " ",

@@ -1,6 +1,6 @@
 return {
   "scalameta/nvim-metals",
-  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap"},
+  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
   config = function()
     local api = vim.api
     ----------------------------------
@@ -28,7 +28,12 @@ return {
     -- you'll not see any messages from metals. There is more info in the help
     -- docs about this
     metals_config.init_options.statusBarProvider = "on"
-
+    metals_config.handlers["textDocument/publishDiagnostics"] =
+      vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = {
+          prefix = "",
+        },
+      })
     -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
     metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
