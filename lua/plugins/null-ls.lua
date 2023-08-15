@@ -29,7 +29,6 @@ local M = {
 
         -- go null-ls.lua
         formatting.goimports_reviser,
-        formatting.golines,
         code_actions.gomodifytags,
         code_actions.impl,
         code_actions.refactoring,
