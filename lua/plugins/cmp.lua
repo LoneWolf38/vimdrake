@@ -1,59 +1,95 @@
-return {
- "hrsh7th/nvim-cmp",
- dependencies = {
-   "neovim/nvim-lspconfig",
-   "hrsh7th/cmp-nvim-lsp",
-   "hrsh7th/cmp-buffer",
-   "hrsh7th/cmp-path",
-   "hrsh7th/cmp-cmdline",
-   "hrsh7th/cmp-vsnip",
-   "hrsh7th/vim-vsnip",
- },
- config = function()
-  -- most of this is copied from nvim-metals
-   local cmp = require("cmp")
-   cmp.setup({
-     sources = {
-       { name = "nvim_lsp" },
-       { name = "nvim_lsp_document_symbol" },
-       { name = "nvim_lsp_signature_help" },
-       { name = "vsnip" },
-       { name = "rg" },
-       { name = 'buffer' },
-       { name = 'path' },
-     },
-     snippet = {
-       expand = function(args)
-         -- Comes from vsnip
-         vim.fn["vsnip#anonymous"](args.body)
-       end,
-     },
-     mapping = cmp.mapping.preset.insert({
-       -- None of this made sense to me when first looking into this since there
-       -- is no vim docs, but you can't have select = true here _unless_ you are
-       -- also using the snippet stuff. So keep in mind that if you remove
-       -- snippets you need to remove this select
-     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-       ['<C-f>'] = cmp.mapping.scroll_docs(4),
-       ['<C-Space>'] = cmp.mapping.complete(),
-       ['<C-e>'] = cmp.mapping.abort(),
-       ["<CR>"] = cmp.mapping.confirm({ select = true }),
-       -- I use tabs... some say you should stick to ins-completion but this is just here as an example
-       ["<Tab>"] = function(fallback)
-         if cmp.visible() then
-           cmp.select_next_item()
-         else
-           fallback()
-         end
-       end,
-       ["<S-Tab>"] = function(fallback)
-         if cmp.visible() then
-           cmp.select_prev_item()
-         else
-           fallback()
-         end
-       end,
-     }),
-   })
- end,
+local M = {
+  "hrsh7th/nvim-cmp",
+  dependencies = {
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-calc",
+    "lukas-reineke/cmp-rg",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-vsnip",
+    "hrsh7th/vim-vsnip",
+    "onsails/lspkind.nvim",
+  },
+  config = function()
+    local cmp = require("cmp")
+    local lspkind = require("lspkind")
+
+    cmp.setup({
+      formatting = {
+        format = lspkind.cmp_format({
+          with_text = false,
+          maxwidth = 50,
+          mode = "symbol",
+          menu = {
+            buffer = "BUF",
+            rg = "RG",
+            nvim_lsp = "LSP",
+            path = "PATH",
+            luasnip = "SNIP",
+            calc = "CALC",
+          },
+        }),
+      },
+      snippet = {
+        expand = function(args)
+          require("luasnip").lsp_expand(args.body)
+        end,
+      },
+      mapping = {
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-u>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+        }),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.select_prev_item()
+          end
+        end, { "i", "s" }),
+      },
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "nvim_lsp_signature_help" },
+        { name = "buffer", keyword_length = 5 },
+        { name = "luasnip" },
+        { name = "calc" },
+        { name = "path" },
+        { name = "rg", keyword_length = 5 },
+        -- { omni = true }, -- completion for vimtex - is this necessary?
+      },
+    })
+
+    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline("/", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
+      }),
+    })
+  end,
 }
+
+return M

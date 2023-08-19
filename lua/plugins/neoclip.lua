@@ -2,7 +2,7 @@ return {
   "AckslD/nvim-neoclip.lua",
   dependencies = { "kkharji/sqlite.lua" },
   opts = {
-    history = 1000,
+    history = 100000,
     enable_persistent_history = true,
     length_limit = 1048576,
     continuous_sync = false,

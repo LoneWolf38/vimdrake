@@ -13,7 +13,6 @@ vim.cmd([[
 vim.keymap.set("n", "*", "*zz")
 
 -- lsp
-vim.keymap.set("n", "<leader><space>", "<cmd>CodeActionMenu<cr>", { desc = "Code Action Menu" })
 -- harpoon
 vim.keymap.set("n", "<leader>'", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Add to Harpoon" })
 vim.keymap.set("n", "<leader>0", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "Show Harpoon" })
@@ -34,10 +33,12 @@ end)
 
 -- TODO Fix the lsp_inplementations bug
 -- vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
--- vim.keymap.set("n", "gi", [[<cmd>lua require"telescope.builtin".lsp_implementations()<CR>]])
 --
 -- GoTo Preview keymaps
 vim.keymap.set("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+vim.keymap.set("n", "gpt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
+vim.keymap.set("n", "gpi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
+vim.keymap.set("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>")
 vim.keymap.set("n", "gP", "<cmd>lua require('goto-preview').close_all_win()<CR>")
 
 -- lsp.buf keymaps
@@ -50,13 +51,17 @@ vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{ async = true }<CR
 -- Telescope funyuns
 vim.keymap.set("n", "gws", [[<cmd>lua require"telescope.builtin".lsp_dynamic_workspace_symbols()<CR>]])
 vim.keymap.set("n", "gr", [[<cmd>lua require"telescope.builtin".lsp_references()<CR>]])
+vim.keymap.set("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions()<CR>]])
 vim.keymap.set("n", "gds", [[<cmd>lua require"telescope.builtin".lsp_document_symbols()<CR>]])
+vim.keymap.set("n", "gi", [[<cmd>lua require"telescope.builtin".lsp_implementations()<CR>]])
 vim.keymap.set("n", "<leader>aa", [[<cmd>lua require"telescope.builtin".diagnostics()<CR>]]) -- all workspace diagnostics
 vim.keymap.set("n", "<leader>ae", [[<cmd>lua require"telescope.builtin".diagnostics({severity = "E"})<CR>]]) -- all workspace errors
 vim.keymap.set("n", "<leader>aw", [[<cmd>lua require"telescope.builtin".diagnostics({severity = "W"})<CR>]]) -- all workspace errors
 vim.keymap.set("n", "<leader>mc", [[<cmd>lua require"telescope".extensions.metals.commands()<CR>]])
 vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>/", "<cmd>Telescope live_grep<cr>", { desc = "Telescope live grep" })
+vim.keymap.set("n", "fgs", "<cmd>Telescope git_status<cr>", { desc = "Telescope git status" })
+vim.keymap.set("n", "fgb", "<cmd>Telescope git_branches<cr>", { desc = "Telescope git branches" })
 
 -- vim own things
 vim.keymap.set("n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diagnostics only
