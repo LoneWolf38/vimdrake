@@ -38,11 +38,11 @@ end)
 -- keymap.Set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 --
 -- GoTo Preview keymaps
-keymap.Set("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
-keymap.Set("n", "gpt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
-keymap.Set("n", "gpi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
-keymap.Set("n", "gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>")
-keymap.Set("n", "gP", "<cmd>lua require('goto-preview').close_all_win()<CR>")
+keymap.Set("n", "<leader>gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+keymap.Set("n", "<leader>gpt", "<cmd>lua require('goto-preview').goto_preview_type_definition()<CR>")
+keymap.Set("n", "<leader>gpi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>")
+keymap.Set("n", "<leader>gpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>")
+keymap.Set("n", "<leader>gP", "<cmd>lua require('goto-preview').close_all_win()<CR>")
 
 -- lsp.buf keymaps
 keymap.Set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")

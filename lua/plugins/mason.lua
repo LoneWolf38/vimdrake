@@ -20,12 +20,14 @@ return {
       "html-lsp",
       "json-lsp",
       "lua-language-server",
+      "groovy-language-server",
       "rust-analyzer",
       "shellcheck",
       "shfmt",
       "sqlls",
       "stylua",
       "yaml-language-server",
+      "elixir-ls",
     }
   end,
 }

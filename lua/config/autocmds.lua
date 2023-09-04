@@ -11,3 +11,13 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*.zshrc" },
   command = "execute 'silent !source <afile> --silent'",
 })
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = { "*.go" },
+--   command = "execute 'silent !go mod tidy && go mod vendor && source $MYVIMRC'",
+-- })
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
+  end,
+})

@@ -7,6 +7,13 @@ return {
     end
     local icons = require("config.icons")
 
+    local noice_mode = {
+
+      require("noice").api.statusline.mode.get,
+      cond = require("noice").api.statusline.mode.has,
+      -- color = { fg = "#ff9e64" },
+    }
+
     local diagnostics = {
       "diagnostics",
       sources = { "nvim_diagnostic" },
@@ -67,7 +74,7 @@ return {
         },
         lualine_b = { "filename", "branch" },
         lualine_c = { "fileformat", diff, diagnostics },
-        lualine_x = {},
+        lualine_x = { noice_mode },
         lualine_y = { "filetype", "progress", lsp },
         lualine_z = {
           { "location", separator = { right = "" }, left_padding = 2 },
