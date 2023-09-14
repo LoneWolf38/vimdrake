@@ -1,9 +1,10 @@
 local M = {}
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
-function M.find_files()
+function M.get_branch()
   local ts = require("telescope.builtin")
   local opts = {
+    prompt_title = "something",
     attach_mappings = function(prompt_bufnr, map)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)

@@ -15,7 +15,7 @@ vim.cmd([[
 
 keymap.Set("n", "*", "*zz")
 
-keymap.Set("n", "<leader>en", "<cmd> lua require('config.globals.filediff').find_files()<CR>")
+keymap.Set("n", "<leader>en", "<cmd> lua require('config.globals.filediff').get_branch()<CR>")
 
 -- lsp
 -- harpoon
