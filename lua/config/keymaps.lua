@@ -15,6 +15,8 @@ vim.cmd([[
 
 keymap.Set("n", "*", "*zz")
 
+keymap.Set("n", "<leader>en", "<cmd> lua require('config.globals.filediff').find_files()<CR>")
+
 -- lsp
 -- harpoon
 keymap.Set("n", "<leader>'", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Add to Harpoon" })
