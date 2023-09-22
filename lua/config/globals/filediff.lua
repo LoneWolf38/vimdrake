@@ -9,11 +9,20 @@ local M = {}
 
 local f = function(branch, file_path)
   local diffview = require("diffview")
-  diffview.open({ "HEAD", branch, "--", file_path })
+  diffview.open({ branch, "--", file_path })
 end
 M.file_diff = function(opts)
   opts = opts or {}
-  local command = { "git", "for-each-ref", "--perl", "--format", "%(refname)", "--sort", "-authordate", opts.pattern }
+  local command = {
+    "git",
+    "for-each-ref",
+    "--perl",
+    "--format",
+    "%(refname:short)",
+    "--sort",
+    "-authordate",
+    opts.pattern,
+  }
 
   local seen = {}
   local string_entry_maker = make_entry.gen_from_string()
@@ -35,7 +44,7 @@ M.file_diff = function(opts)
         actions.select_default:replace(function()
           actions.close(prompt_bufnr)
           local selected = actions_state.get_selected_entry()
-          f(selected, vim.api.nvim_buf_get_name(0))
+          f(selected, vim.fn.expand("%"))
         end)
         return true
       end,
