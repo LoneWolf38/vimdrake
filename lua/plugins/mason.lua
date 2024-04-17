@@ -14,11 +14,10 @@ return {
     }
     opts.ensure_installed = {
       "bash-language-server",
-      "clangd",
       "flake8",
       "gopls",
       "html-lsp",
-      "json-lsp",
+      "fixjson",
       "lua-language-server",
       "groovy-language-server",
       "rust-analyzer",
@@ -28,6 +27,8 @@ return {
       "stylua",
       "yaml-language-server",
       "elixir-ls",
+      "protolint",
+      "buf",
     }
   end,
 }

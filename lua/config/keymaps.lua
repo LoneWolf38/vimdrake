@@ -19,8 +19,8 @@ keymap.Set("n", "<leader>en", "<cmd> lua require('config.globals.filediff').file
 
 -- lsp
 -- harpoon
-keymap.Set("n", "<leader>'", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Add to Harpoon" })
-keymap.Set("n", "<leader>0", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "Show Harpoon" })
+keymap.Set("n", "<leader>j", "<cmd>lua require('harpoon.mark').add_file()<cr>", { desc = "Add to Harpoon" })
+keymap.Set("n", "<leader>k", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "Show Harpoon" })
 keymap.Set("n", "<C-e>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", { desc = "Harpoon Nav next" })
 keymap.Set({ "n", "x" }, "<leader>rr", function()
   require("refactoring").select_refactor()
