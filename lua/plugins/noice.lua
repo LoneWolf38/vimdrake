@@ -5,11 +5,16 @@ return {
     "rcarriga/nvim-notify",
   },
   event = "VeryLazy",
-  ---@class NoiceConfig
+  routes = {
+    filter = {
+      event = "msg_show",
+      kind = "",
+      find = "written",
+    },
+  },
   opts = {
-    ---@type NoicePresets
+    skip = true,
     presets = { inc_rename = true },
-    ---@type NoiceConfigViews
     views = {
       cmdline_popup = {
         position = {
