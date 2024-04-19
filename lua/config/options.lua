@@ -53,6 +53,7 @@ vim.opt.guicursor = ""
 vim.opt.isfname:append("@-@")
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
+vim.opt.inccommand = "split"
 
 -- wrapping
 vim.opt.wrap = true

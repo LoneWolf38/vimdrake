@@ -47,6 +47,7 @@ keymap.Set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{ async = true }<CR>")
 keymap.Set("n", "gws", [[<cmd>lua require"telescope.builtin".lsp_dynamic_workspace_symbols()<CR>]])
 keymap.Set("n", "gr", [[<cmd>lua require"telescope.builtin".lsp_references()<CR>]])
 keymap.Set("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions()<CR>]])
+keymap.Set("n", "gd", [[<cmd>lua require"telescope.builtin".lsp_type_definitions()<CR>]])
 keymap.Set("n", "gds", [[<cmd>lua require"telescope.builtin".lsp_document_symbols()<CR>]])
 keymap.Set("n", "gi", [[<cmd>lua require"telescope.builtin".lsp_implementations()<CR>]])
 keymap.Set("n", "<leader>aa", [[<cmd>lua require"telescope.builtin".diagnostics()<CR>]]) -- all workspace diagnostics
@@ -57,11 +58,36 @@ keymap.Set("n", "<leader>bb", "<cmd>Telescope buffers<cr>", { desc = "Telescope 
 keymap.Set("n", "<leader>/", "<cmd>Telescope live_grep<cr>", { desc = "Telescope live grep" })
 keymap.Set("n", "fgs", "<cmd>Telescope git_status<cr>", { desc = "Telescope git status" })
 keymap.Set("n", "fgb", "<cmd>Telescope git_branches<cr>", { desc = "Telescope git branches" })
+keymap.Set("n", "<leader>s.", [[<cmd>lua require"telescope.builtin".oldfiles()<CR>]], { desc = "Telescope oldfiles" })
+keymap.Set("n", "<leader>r", [[<cmd>lua require"telescope.builtin".resume()<CR>]], { desc = "Telescope oldfiles" })
+keymap.Set("n", "<leader>sk", [[<cmd>lua require"telescope.builtin".keymaps()<CR>]], { desc = "Telescope oldfiles" })
+vim.keymap.set("n", "<leader>sn", function()
+  require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
+end, { desc = "[S]earch [N]eovim files" })
 
 -- vim own things
 keymap.Set("n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diagnostics only
 keymap.Set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 keymap.Set("n", "]d", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
+-- Lua
+-- keymap.set("n", "<leader>xx", function()
+--   require("trouble").toggle()
+-- end)
+-- keymap.set("n", "<leader>xw", function()
+--   require("trouble").toggle("workspace_diagnostics")
+-- end)
+-- keymap.set("n", "<leader>xd", function()
+--   require("trouble").toggle("document_diagnostics")
+-- end)
+-- keymap.set("n", "<leader>xq", function()
+--   require("trouble").toggle("quickfix")
+-- end)
+-- keymap.set("n", "<leader>xl", function()
+--   require("trouble").toggle("loclist")
+-- end)
+-- keymap.set("n", "gR", function()
+--   require("trouble").toggle("lsp_references")
+-- end)
 
 -- recommended mappings
 -- resizing splits
