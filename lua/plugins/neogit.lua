@@ -10,4 +10,6 @@ return {
       diffview = true,
     },
   },
+
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
 }
