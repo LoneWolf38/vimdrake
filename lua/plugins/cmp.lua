@@ -11,6 +11,7 @@ local M = {
     "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
+    "Exafunction/codeium.nvim",
     "onsails/lspkind.nvim",
   },
   config = function()
@@ -61,6 +62,7 @@ local M = {
         end, { "i", "s" }),
       },
       sources = {
+        { name = "codeium" },
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
         { name = "buffer", keyword_length = 5 },

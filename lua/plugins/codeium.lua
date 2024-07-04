@@ -1,10 +1,11 @@
 return {
-  "Exafunction/codeium.vim",
+  "Exafunction/codeium.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "hrsh7th/nvim-cmp",
+  },
   config = function()
-    -- Change '<C-g>' here to any keycode you like.
-    vim.keymap.set("i", "<C-g>", function()
-      return vim.fn["codeium#Accept"]()
-    end, { expr = true })
+    require("codeium").setup({})
   end,
   event = "BufEnter",
 }
