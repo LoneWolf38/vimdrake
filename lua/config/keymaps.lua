@@ -91,6 +91,14 @@ keymap.Set("n", "]d", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 
 -- recommended mappings
 -- resizing splits
+--
+--
+keymap.Set("n", "<leader>rq<C-l>", ":lua require('kulala').jump_prev()<CR>", { noremap = true, silent = true })
+keymap.Set("n", "<leader>rq<C-j>", ":lua require('kulala').jump_next()<CR>", { noremap = true, silent = true })
+keymap.Set("n", "<leader>rq", ":lua require('kulala').run()<CR>", { noremap = true, silent = true })
+-- keymap.Set("n", "<leader>rq", require("kulala").run)
+--
+--
 keymap.Set("n", "<A-h>", require("smart-splits").resize_left)
 keymap.Set("n", "<A-j>", require("smart-splits").resize_down)
 keymap.Set("n", "<A-k>", require("smart-splits").resize_up)
