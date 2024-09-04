@@ -2,6 +2,7 @@ local plugin = "nvim-lspconfig"
 
 return {
   "neovim/" .. plugin,
+  dependencies = "nvim-java/nvim-java",
   event = { "BufReadPost", "BufNewFile" },
   opts = function(_, opts)
     opts.servers = {
@@ -14,6 +15,7 @@ return {
       gopls = {},
       bufls = {},
       html = {},
+      jdtls = {},
       jsonls = {
         settings = {
           json = {
