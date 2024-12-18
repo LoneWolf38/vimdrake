@@ -59,9 +59,15 @@ keymap.Set("n", "<leader>/", "<cmd>Telescope live_grep<cr>", { desc = "Telescope
 keymap.Set("n", "fgs", "<cmd>Telescope git_status<cr>", { desc = "Telescope git status" })
 keymap.Set("n", "fgb", "<cmd>Telescope git_branches<cr>", { desc = "Telescope git branches" })
 keymap.Set("n", "<leader>s.", [[<cmd>lua require"telescope.builtin".oldfiles()<CR>]], { desc = "Telescope oldfiles" })
-keymap.Set("n", "<leader>r", [[<cmd>lua require"telescope.builtin".resume()<CR>]], { desc = "Telescope oldfiles" })
-keymap.Set("n", "<leader>sk", [[<cmd>lua require"telescope.builtin".keymaps()<CR>]], { desc = "Telescope oldfiles" })
-vim.keymap.set("n", "<leader>sn", function()
+keymap.Set("n", "<leader>p.", [[<cmd>lua require"telescope.builtin".find_files()<CR>]], { desc = "Telescope oldfiles" })
+keymap.Set(
+  "n",
+  "<leader>r",
+  [[<cmd>lua require"telescope.builtin".resume()<CR>]],
+  { desc = "Telescope Resume Last search" }
+)
+keymap.Set("n", "<leader>sk", [[<cmd>lua require"telescope.builtin".keymaps()<CR>]], { desc = "Telescope Keymaps" })
+keymap.Set("n", "<leader>sn", function()
   require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
 end, { desc = "[S]earch [N]eovim files" })
 
@@ -96,6 +102,7 @@ keymap.Set("n", "]d", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 keymap.Set("n", "<leader>rq<C-l>", ":lua require('kulala').jump_prev()<CR>", { noremap = true, silent = true })
 keymap.Set("n", "<leader>rq<C-j>", ":lua require('kulala').jump_next()<CR>", { noremap = true, silent = true })
 keymap.Set("n", "<leader>rq", ":lua require('kulala').run()<CR>", { noremap = true, silent = true })
+keymap.Set("n", "<leader>kx", '<cmd>lua require("kubectl").toggle()<cr>', { noremap = true, silent = true })
 -- keymap.Set("n", "<leader>rq", require("kulala").run)
 --
 --
