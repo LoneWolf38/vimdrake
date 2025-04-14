@@ -12,7 +12,7 @@ return {
       denols = false,
       dockerls = {},
       gopls = {},
-      bufls = {},
+      buf_ls = {},
       html = {},
       jsonls = {
         settings = {

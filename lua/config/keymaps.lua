@@ -13,7 +13,7 @@ vim.cmd([[
   noremap <silent> <c-\> :<C-U>TmuxNavigatePrevious<cr>
 ]])
 
-keymap.Set("n", "*", "*zz")
+keymap.Set("v", "*", "*zz")
 
 keymap.Set("n", "<leader>en", "<cmd> lua require('config.globals.filediff').file_diff({})<CR>")
 
