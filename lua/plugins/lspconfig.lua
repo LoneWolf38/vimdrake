@@ -13,6 +13,11 @@ return {
       dockerls = {},
       gopls = {},
       buf_ls = {},
+      helm_ls = {
+        settings = {
+          filetypes = { "helm", "yaml.helm_values" },
+        },
+      },
       html = {},
       jsonls = {
         settings = {
@@ -28,7 +33,6 @@ return {
       pyright = {},
       svelte = {},
       tsserver = {},
-      yamlls = {},
       lua_ls = {
         single_file_support = true,
         settings = {

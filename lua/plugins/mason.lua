@@ -25,7 +25,7 @@ return {
       "shfmt",
       "sqlls",
       "stylua",
-      "yaml-language-server",
+      "jdtls",
       "elixir-ls",
       "protolint",
       "buf",
