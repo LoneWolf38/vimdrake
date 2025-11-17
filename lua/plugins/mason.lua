@@ -1,7 +1,7 @@
 local plugin = "mason.nvim"
 
 return {
-  "williamboman/" .. plugin,
+  "mason-org/" .. plugin,
   cmd = "Mason",
   opts = function(_, opts)
     opts.ui = {
@@ -25,7 +25,6 @@ return {
       "shfmt",
       "sqlls",
       "stylua",
-      "jdtls",
       "elixir-ls",
       "protolint",
       "buf",
