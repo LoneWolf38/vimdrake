@@ -1,5 +1,9 @@
-## Mac DRAKE
-
+<!-- LOGO -->
+<h1>
+<p align="center">
+  <br>drak3.nvim
+</h1>
+</p>
 
 ### Install the binaries from the Brewfile
 Download the Brewfile separately
