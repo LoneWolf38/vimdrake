@@ -5,7 +5,7 @@
 </h1>
 </p>
 
-### Install the binaries from the Brewfile
+### Install the binaries from the Brewfile if you're in a MacOS
 Download the Brewfile separately
 ```bash
 brew bundle -f /path/to/Brewfile
