@@ -13,3 +13,8 @@ brew bundle -f /path/to/Brewfile
 git clone https://github.com/kristijanhusak/vim-drake.git $Home/.config/nvim
 ```
 
+
+![App Screenshot](./assets/img1.png)
+![App Screenshot2](./assets/img2.png)
+![App Screenshot3](./assets/img3.png)
+
